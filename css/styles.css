@@ -1,0 +1,762 @@
+/*
+* === BASIC STYLE & LAYOUT ===
+*/
+
+
+*, 
+*:before, 
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0 0 30px;
+}
+
+
+.row,
+.member,
+.searchbar,
+.post,
+.social-stats,
+.stat,
+.col-third,
+.wrapper {
+    display: flex;
+}
+
+
+.row {
+    padding: 0 20px 20px 20px;
+}
+
+
+
+/*
+* — Some Defaults —
+*/
+
+
+.side-nav {
+    display: none;
+}
+
+.user p {
+    display: none;
+}
+
+.logo {
+     display: none;
+    }
+
+
+/*
+* === HEADER & WRAPPER ===
+*/
+
+
+header,
+.wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+.wrapper {
+    margin-top: 60px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background: #7477bf;
+    align-items: center;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: fixed;
+    top: 0;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+#mobile-menu {
+    width: 30px;
+    height: 30px;
+}
+
+#green-dot {
+    width: 10px;
+    height: 10px;
+    background: lightgreen;
+    display: inline-block;
+    margin-bottom: 20px;
+    border-radius: 100%;
+}
+
+.notification-icon {
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+#alert-icon {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #E6E6E6;
+    margin-right: 30px;
+}
+
+
+.user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.user {
+    padding-left: 15px;
+}
+
+
+/*
+* — Mobile Menu —
+*/
+
+
+#navigation {
+    display: none;
+    background: firebrick;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    z-index: 100;
+}
+
+#remove-notification,
+#remove-menu {
+    margin: 10px;
+    font-size: 42px;
+    font-weight: 100;
+    color: white;
+}
+
+.title {
+    font-size: 42px;
+    color: white;
+    font-weight: 100;
+    width: 220px;
+    margin: 30px auto;
+    
+}
+
+.title span {
+    padding: 0;
+    font-weight: 500;
+}
+
+
+.mobile-nav a {
+    text-decoration: none; 
+    color: aliceblue;
+    font-size: 42px;
+}
+
+
+.mobile-nav {
+    list-style: none;
+    width: 220px;
+    padding: 0;
+    margin: 30px auto;
+}
+
+
+/*
+* — Notification Area —
+*/
+
+
+#notification-area {
+    display: none;
+    background: lightgreen;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    z-index: 100;
+}
+
+.notification {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background: purple;
+    color: white;
+    border-radius: 20px;
+}
+
+
+
+
+/*
+* === MAIN SECTION ===
+*/
+
+
+
+.main-sec {
+    width: 100%;
+    background: #fff;
+}
+
+
+
+/*
+* — Traffic Chart Section —
+*/
+
+
+.searchbar,
+#alert {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sec-one {
+    flex-direction: column;
+}
+
+.traffic-chart {
+    margin-top: 40px;
+}
+
+#alert {
+    background: #7477bf;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 5px;
+    align-items: center;
+}
+
+#alert span {
+    font-size: 18px;
+    font-weight: 500;
+    padding-right: 5px;
+}
+
+#exit-alert {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+
+.search {
+    width: 100%;
+    text-align: right;    
+}
+
+.searchbar {
+    padding-bottom: 20px;
+}
+
+.searchbar h2 {
+    margin: 20px 30px 0 0;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+input[type=search] {
+ margin: 20px 0 0 0;
+ height: 12px;
+ padding: 10px;    
+ border: 1px solid #d6d6d6;
+ border-radius: 3px;
+}
+
+
+
+/*
+* — Daily Traffic & Mobile Users Section —
+*/
+
+
+.sec-two {
+    flex-direction: column;
+}
+
+.sec-two h3 {
+    margin-top: 30px;
+}
+
+.dailyTrafficChart,
+.mobileUsersChart {
+    width: 100%;
+}
+
+
+
+/*
+* — Social Media Stats Section —
+*/
+
+
+.stat,
+.sec-three {
+    flex-direction: column;
+}
+
+
+.social-stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-info {
+    display: flex;
+    border: 1px solid #d6d6d6;
+    margin-bottom: 30px;
+    padding: 20px 30px;
+}
+
+.social-icon {
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    background: #7477bf;
+    border-radius: 100%;
+    margin-right: 20px;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    fill: #fff;
+    padding: 10px;
+}
+
+
+
+
+.stat h3 {
+    color: #7477bf;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.stat p {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 42px;
+    font-weight: 300;
+}
+
+.facebook {
+    margin: 0 30px;
+}
+
+
+
+/*
+* — Members & Feed Section —
+*/
+
+
+.sec-four {
+    flex-direction: column;
+}
+
+.sec-four h3 {
+    margin-top: 30px;   
+}
+
+.member,
+.post {
+    width: 100%;
+    height: 92px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.member:nth-child(5),
+.post:nth-child(5) {
+    border: none;
+    padding-bottom: 0;
+}
+
+
+
+
+.member img,
+.post img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+
+.user-info p,
+.feed-info p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.member a,
+.feed-info p:nth-child(2) {
+    font-size: 14px;
+}
+
+
+.user-info,
+.feed-info{
+    margin-right: 10%;
+}
+
+.post p,
+.member p {
+    margin-left: auto;   
+}
+
+.end {
+  font-size: 32px;
+  color: #999;
+  margin-bottom: 0;  
+  margin-top: 0;
+  font-weight: 100;
+}
+
+
+
+/*
+* — Contact & Settings Section —
+*/
+
+
+.sec-five {
+    flex-direction: column;
+}
+
+.sec-five h3 {
+  margin-top: 30px;   
+}
+
+.contact input,
+button,
+textarea {
+    width: 100%;
+}
+
+.timezone,
+.contact input,
+.contact textarea {
+    border: 1px solid #D6D6D6;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 8px;
+    width: 100%;
+}
+
+input {margin-bottom: 10px;}
+
+.contact button {
+    background: #7477bf;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.settings button {
+    width: 100%;
+    padding: 15px 0;
+    color: white;
+    text-align: center;
+}
+
+.save {
+    background: #7477bf; 
+    margin-bottom: 20px;
+}
+
+.cancel {
+    background: grey;
+}
+
+
+.notifications,
+.profile {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.timezone {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+
+
+/*
+* — Slider Styles —
+*/
+
+
+.slideTwo,
+.slideThree {
+  width: 80px;
+  height: 26px;
+  background: #7477bf;
+  position: relative;
+  display: inline-block;
+  margin-left: 40px;
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+}
+
+.slideTwo:after,
+.slideThree:after {
+    content: 'OFF';
+    color: #000;
+    position: absolute;
+    right: 15px;
+    top: 7px;
+    z-index: 0;
+    font-size: 12px;
+    font-weight: 500;
+    text-shadow: 1px 1px 0px rgba(255,255,255,.15);
+  }
+
+.slideTwo:before,
+.slideThree:before {
+    content: 'ON';
+    color: #fff;
+    position: absolute;
+    left: 15px;
+    top: 7px;
+    z-index: 0;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+.slideTwo label,
+.slideThree label {
+    display: block;
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    z-index: 1;
+    background: #fcfff4;
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+  }
+
+.slideTwo input[type=checkbox],
+.slideThree input[type=checkbox] {
+    visibility: hidden;
+  }
+
+.slideTwo input[type=checkbox]:checked + label, 
+.slideThree input[type=checkbox]:checked + label {
+      left: 43px;
+    }
+
+
+
+
+
+
+/*
+* === MEDIA QUERIES ===
+*/
+
+
+
+@media (min-width: 480px) {
+    
+    /* have search bar show here*/
+    
+    
+     .logo {
+        display: inline-block;
+        font-size: 30px;
+        margin: 0;
+        font-weight: 100;
+        padding-left: 10px;
+    }
+    
+    .logo span {
+        padding: 0;
+        font-weight: 500;
+    }
+      
+    
+}
+
+
+
+@media (min-width: 920px) {
+    
+    .user p {
+     display: block;
+     padding-left: 15px;
+    }
+    
+    #mobile-menu {
+        display: none;   
+    }
+    
+    .main-sec {
+        width: calc(100% - 90px);   
+    }
+    
+    .side-nav {
+        display: flex;
+        width: 90px;
+        background: #4d4c72;
+        flex-direction: column;
+        padding-top: 20px;
+    }
+
+    .menu-item {
+        border-left: 3px solid #85db80;
+        padding: 15px 25px;
+        margin-bottom: 30px;
+    }
+
+
+    .side-nav img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .col,
+    .dailyTrafficChart,
+    .mobileUsersChart {
+        width: 50%;
+    }
+    
+    .col {
+        padding: 25px;
+    }
+    
+    .row {
+      border-bottom: 2px solid #d6d6d6;
+      padding: 0;
+    }
+    
+    
+    .sec-two,
+    .sec-four,
+    .sec-five {
+        flex-direction: row;   
+    }
+
+    .sec-one,
+    .sec-three {
+        padding: 25px;   
+    }
+
+    .social-stats {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .social-info {
+        padding: 20px 100px 20px 20px;
+        width: 32%;
+    }
+    
+    
+    .settings button {
+        width: 49%;   
+    }
+    
+    .notifications,
+    .profile {
+        padding-top: 0;
+        margin-bottom: 12px;
+    }
+    
+    
+    .col:first-child {
+        border-right: 2px solid #d6d6d6;   
+    }
+    
+    .sec-four .col {
+        padding-bottom: 0;   
+    }
+    
+    
+    .sec-one {
+        padding: 0;
+    }
+    
+    .searchbar h2 {
+        padding-left: 25px;   
+    }
+    
+    .traffic-chart {
+      padding: 25px;
+    }
+    
+    #alert {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    
+    .search {
+        padding: 10px 25px;
+        background: #d6d6d6;
+        border-bottom: 1px solid #333;
+        border-left: 1px solid #333;
+    }
+    
+    .search input {
+        margin-top: 10px;
+    }   
+    
+}
+    
