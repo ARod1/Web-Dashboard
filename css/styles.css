@@ -92,6 +92,8 @@ header {
     padding-right: 10px;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
 }
 
 .logo-area {
@@ -162,8 +164,60 @@ header {
     z-index: 100;
 }
 
+
+
+
+
+
+
+
+
+
+
+#send-mms {
+    display: none;
+    background: lightgreen;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    z-index: 100;
+}
+
+
+#good,
+#bad { 
+    width: 50%;
+    margin:auto;
+    padding: 25px;
+    font-size: 28px;
+    color: white;
+    background: rgba(0,0,0,.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #remove-notification,
-#remove-menu {
+#remove-menu,
+#remove-mms{
     margin: 10px;
     font-size: 42px;
     font-weight: 100;
@@ -305,8 +359,35 @@ input[type=search] {
  height: 12px;
  padding: 10px;    
  border: 1px solid #d6d6d6;
- border-radius: 3px;
+ border-radius: 5px;
 }
+
+
+.traffic-chart-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+}
+
+.traffic-chart-menu p {
+    margin: 0 0 30px 0;
+    font-size: 12px;
+}
+
+.active-chart {
+    padding: 5px 10px;
+    background: lightgreen;
+    color: white;
+    border-radius: 20px;
+}
+
+
+#hourly {
+    margin-left: 10%;   
+}
+
+
+
 
 
 
@@ -365,7 +446,7 @@ input[type=search] {
 .icon {
     width: 50px;
     height: 50px;
-    fill: #fff;
+    fill: white;
     padding: 10px;
 }
 
@@ -423,7 +504,7 @@ input[type=search] {
 
 
 .member img,
-.post img {
+.post-img {
     width: 40px;
     height: 40px;
     border-radius: 100%;
@@ -454,13 +535,20 @@ input[type=search] {
 }
 
 .end {
-  font-size: 32px;
-  color: #999;
-  margin-bottom: 0;  
-  margin-top: 0;
-  font-weight: 100;
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: 0;
 }
 
+
+
+#post:hover {
+    content: "New Post";
+    background: firebrick;
+    color: white;
+    padding: 5px 10px;
+}
 
 
 /*
@@ -528,8 +616,15 @@ input {margin-bottom: 10px;}
 }
 
 .timezone {
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin-top: 1px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+
+.notifications p,
+.profile p {
+    margin: 0;   
 }
 
 
@@ -587,7 +682,7 @@ input {margin-bottom: 10px;}
     left: 10px;
     z-index: 1;
     background: #fcfff4;
-    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: linear-gradient(#fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
     border-radius: 50px;
     transition: all 0.4s ease;
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
@@ -631,6 +726,17 @@ input {margin-bottom: 10px;}
         padding: 0;
         font-weight: 500;
     }
+    
+    
+    
+    .traffic-chart-menu p {
+        font-size: 14px;
+    }
+
+    #hourly {
+        margin-left: 20%;   
+    }
+
       
     
 }
@@ -659,13 +765,16 @@ input {margin-bottom: 10px;}
         flex-direction: column;
         padding-top: 20px;
     }
-
+    
     .menu-item {
-        border-left: 3px solid #85db80;
         padding: 15px 25px;
         margin-bottom: 30px;
     }
 
+    .menu-item:first-child {
+        border-left: 3px solid #85db80;
+    }
+    
 
     .side-nav img {
         width: 32px;
@@ -717,7 +826,7 @@ input {margin-bottom: 10px;}
     .notifications,
     .profile {
         padding-top: 0;
-        margin-bottom: 12px;
+        margin-bottom: 11px;
     }
     
     
@@ -749,14 +858,27 @@ input {margin-bottom: 10px;}
     
     .search {
         padding: 10px 25px;
-        background: #d6d6d6;
-        border-bottom: 1px solid #333;
-        border-left: 1px solid #333;
+        background: rgba(193,193,193,.1);
+        border-bottom: 2px solid #e6e6e6;
+        border-left: 2px solid #e6e6e6;
     }
     
     .search input {
         margin-top: 10px;
     }   
+    
+    input[type=search] {
+        padding: 10px 70px 10px 10px;    
+    }
+
+    #hourly {
+    margin-left: 60%;   
+    }
+    
+    .traffic-chart-menu p {
+        font-size: 14px;
+    }
+    
     
 }
     
