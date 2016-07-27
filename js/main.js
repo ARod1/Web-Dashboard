@@ -1,11 +1,12 @@
 
 //Canvas elements for charts
-var canvaOne = document.getElementById("trafficChart-weekly");
+var canvaWeekly = document.getElementById("trafficChart-weekly");//Top main chart menu charts
 var canvaHourly = document.getElementById("trafficChart-hourly");
 var canvaDaily = document.getElementById("trafficChart-daily");
 var canvaMonthly = document.getElementById("trafficChart-monthly");
-var canvaTwo = document.getElementById("dailyTrafficChart");
-var canvaThree = document.getElementById("mobileUsersChart");
+
+var canvaDailyTraffic = document.getElementById("dailyTrafficChart"); //bar chart
+var canvaMobileUsers = document.getElementById("mobileUsersChart"); //pir chart
 
 
 //Chart Menu
@@ -21,116 +22,28 @@ var cancelMenu = document.getElementById("remove-menu");
 var mobileMenuIcon = document.getElementById("mobile-menu");
 
 
-//Notication alerts orverlay and items
-var noticationArea = document.getElementById("notification-area");
-var cancelNotification = document.getElementById("remove-notification");
-var notificationTrigger = document.getElementById("alert-icon");
-
-
 //Alert display and clear items
 var alert = document.getElementById("alert");
 var cancelAlert = document.getElementById("exit-alert");
 var greenDot = document.getElementById("green-dot");
 
 
+//Message modal
 var sendButton = document.getElementById("contact-member");
-var mmsWrapper = document.getElementById("send-mms");
-var cancelMms = document.getElementById("remove-mms");
-var mmsSuccess = document.getElementById("good");
-var mmsError= document.getElementById("bad");
-
+var mmsOverlay = document.getElementById("send-mms");
+var mmsWrap = document.getElementById("mms-wrap");
+var closeMms = document.getElementsByClassName("close")[0];
 var searchInput = document.getElementById('user-search');
+var userMms = document.getElementById('user-message');
+var mmsText = document.getElementById("mms-text");
 
 
 
 
-//Disable other charts
-canvaDaily.style.display = 'none';
-canvaHourly.style.display = 'none';
-canvaMonthly.style.display = 'none';
+//MAIN TRAFFIC CHARTS DATA
 
-
-
-
-
-
-//Traffic Menu 
-
-dailyMenu.addEventListener("click", function(){console.log("Iam alive");});
-weeklyMenu.addEventListener("click", function(){console.log("Iam alive");});
-monthlyMenu.addEventListener("click", function(){console.log("Iam alive");});
-
-
-
-
-
-
-
-sendButton.addEventListener('click', function(){
-//Check to see if a member has been selected
-    mmsWrapper.style.display = 'block';
-    
-    if(searchInput.value) {
-        mmsWrapper.style.background = 'lightgreen';
-        mmsSuccess.style.display = 'block'; 
-        mmsError.style.display = 'none';
-        
-    } else {
-        mmsWrapper.style.background = 'firebrick';
-        mmsError.style.display = 'block';
-        mmsSuccess.style.display = 'none';   
-    }
-    
-
-});
-
-cancelMms.addEventListener('click', function() {
-    mmsWrapper.style.display = 'none';   
-});
-
-
-
-
-
-
-cancelMenu.addEventListener("click", function() {
-    display(mobileNav, 'none');
-});
-
-
-mobileMenuIcon.addEventListener("click", function() {
-    display(mobileNav, 'block');
-});
-
-
-cancelNotification.addEventListener("click", function() {
-    display(noticationArea, 'none');
-});
-
-
-
-notificationTrigger.addEventListener("click", function() {
-    display(noticationArea, 'block');
-});
-
-
-
-cancelAlert.addEventListener("click", function() {
-    display(alert, 'none');
-    display(greenDot, 'none');
-});
-
-function display(el, prop) {
-    el.style.display = prop;
-}
-
-
-//Global Settings
-//Chart.defaults.global.legend.display = false;
-
-
-
-var trafficData = {
+//Main chart
+var trafficDataWeekly = {
         datasets: [{
             label: "Traffic",
             backgroundColor: "rgba(133,133,133,0.3)",
@@ -382,7 +295,30 @@ var trafficDataMonthly = {
         }]
     };
 
+//Data for pie chart
+var pieChartData = {
+    labels: [
+        "Phones",
+        "Tablets",
+        "Desktop"
+    ],
+    datasets: [
+        {
+            data: [200, 200, 1000],
+            backgroundColor: [
+                "#74b1bf",
+                "#81c98f",
+                "#7377bf"
+            ],
+            hoverBackgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56"
+            ]
+        }]
+};
 
+//Main options - being used by all four main traffic charts
 var trafficOptions = {
         scales: {
             xAxes: [{
@@ -414,13 +350,11 @@ var trafficOptions = {
 
 //CHART INITIALAZATION
 
-var trafficChart = new Chart(canvaOne, {
+var trafficChartWeekly = new Chart(canvaWeekly, {
     type: 'line',
-    data: trafficData,
+    data: trafficDataWeekly,
     options: trafficOptions
 });
-
-
 
 var trafficChartHourly = new Chart(canvaHourly, {
     type: 'line',
@@ -428,18 +362,11 @@ var trafficChartHourly = new Chart(canvaHourly, {
     options: trafficOptions
 });
 
-
-
-
-
 var trafficChartDaily = new Chart(canvaDaily, {
     type: 'line',
     data: trafficDataDaily,
     options: trafficOptions
 });
-
-
-
 
 var trafficChartMonthly = new Chart(canvaMonthly, {
     type: 'line',
@@ -447,80 +374,7 @@ var trafficChartMonthly = new Chart(canvaMonthly, {
     options: trafficOptions
 });
 
-
-
-
-
-hourlyMenu.addEventListener("click", function(){
-    active(hourlyMenu, weeklyMenu, dailyMenu, monthlyMenu);
-    displayTraffic(canvaHourly, canvaOne, canvaDaily, canvaMonthly);
-});
-
-
-dailyMenu.addEventListener("click", function(){
-    active(dailyMenu, weeklyMenu, hourlyMenu, monthlyMenu);
-    displayTraffic(canvaDaily, canvaOne, canvaHourly, canvaMonthly);
-});
-
-
-weeklyMenu.addEventListener("click", function(){
-    active(weeklyMenu, hourlyMenu, dailyMenu, monthlyMenu);
-    displayTraffic(canvaOne, canvaHourly, canvaDaily, canvaMonthly);
-});
-
-monthlyMenu.addEventListener("click", function(){
-    active(monthlyMenu, weeklyMenu, dailyMenu, hourlyMenu);
-    displayTraffic(canvaMonthly, canvaOne, canvaDaily, canvaHourly);
-});
-
-
-
-
-function active(add, removeOne, removeTwo, removeThree){
-    add.setAttribute('class', 'active-chart');
-    removeOne.classList.remove('active-chart');
-    removeTwo.classList.remove('active-chart');
-    removeThree.classList.remove('active-chart');
-}
-
-function displayTraffic(block, noneOne, noneTwo, noneThree) { 
-    block.style.display = 'block';
-    noneOne.style.display = 'none';
-    noneTwo.style.display = 'none';
-    noneThree.style.display = 'none';
-}
-
-
-
-
-
-var pieChartData = {
-    labels: [
-        "Phones",
-        "Tablets",
-        "Desktop"
-    ],
-    datasets: [
-        {
-            data: [200, 200, 1000],
-            backgroundColor: [
-                "#74b1bf",
-                "#81c98f",
-                "#7377bf"
-            ],
-            hoverBackgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ]
-        }]
-};
-
-
-
-
-
-var dailyTrafficChart = new Chart(canvaTwo, {
+var dailyTrafficChart = new Chart(canvaDailyTraffic, {
     type: 'bar',
     data: {
         labels: ["S", "M", "T", "W", "T", "F", "S"],
@@ -554,8 +408,7 @@ var dailyTrafficChart = new Chart(canvaTwo, {
     }
 });
 
-
-var mobbileUsersChart = new Chart(canvaThree, {
+var mobileUsersChart = new Chart(canvaMobileUsers, {
     type: 'doughnut',
     data: pieChartData,
     options: {
@@ -570,3 +423,114 @@ var mobbileUsersChart = new Chart(canvaThree, {
         }
     }
 });
+
+
+
+//FUNCTIONS
+
+function display(el, prop) {
+    el.style.display = prop;
+}
+
+function active(add, removeOne, removeTwo, removeThree){
+    add.setAttribute('class', 'active-chart');
+    removeOne.classList.remove('active-chart');
+    removeTwo.classList.remove('active-chart');
+    removeThree.classList.remove('active-chart');
+}
+
+function displayTraffic(block, noneOne, noneTwo, noneThree) { 
+    block.style.display = 'block';
+    noneOne.style.display = 'none';
+    noneTwo.style.display = 'none';
+    noneThree.style.display = 'none';
+}
+
+//*****MAIN WORK GOES HERE *************
+
+
+//Disable other charts in the main traffic section
+canvaDaily.style.display = 'none';
+canvaHourly.style.display = 'none';
+canvaMonthly.style.display = 'none';
+
+
+
+
+
+
+//EVENT LISTENERS
+
+//Exit mobiel nav
+cancelMenu.addEventListener("click", function() {
+    display(mobileNav, 'none');
+});
+
+//View mobile nav
+mobileMenuIcon.addEventListener("click", function() {
+    display(mobileNav, 'block');
+});
+
+
+//Exit alert above the traffic chart
+cancelAlert.addEventListener("click", function() {
+    display(alert, 'none');
+    display(greenDot, 'none');
+});
+
+//Trigger for mms window
+sendButton.addEventListener('click', function(){
+    mmsOverlay.style.display = 'block';
+    
+    if (searchInput.value && userMms.value) {
+        mmsWrap.classList.remove('bad');
+        mmsWrap.classList.add('good');
+        mmsText.innerHTML = "Your message has been sent. Thank you";
+        
+    } else if (searchInput.value) {
+        mmsWrap.classList.add('bad');
+        mmsText.innerHTML = "Oops you seem to be missing the message";
+        
+    } else  if (userMms.value) {
+        mmsWrap.classList.add('bad');
+        mmsText.innerHTML = "Please select a valid user";
+        
+    } else {
+        mmsWrap.classList.add('bad');
+        mmsText.innerHTML = "Error: Need a user and a message, please try again.";
+    }
+    
+
+});
+
+//Close the success mms window
+closeMms.addEventListener("click", function() {
+    mmsOverlay.style.display = "none";
+});
+
+
+
+//TRAFFIC MENU EVENTS
+hourlyMenu.addEventListener("click", function(){
+    active(hourlyMenu, weeklyMenu, dailyMenu, monthlyMenu);
+    displayTraffic(canvaHourly, canvaWeekly, canvaDaily, canvaMonthly);
+});
+
+dailyMenu.addEventListener("click", function(){
+    active(dailyMenu, weeklyMenu, hourlyMenu, monthlyMenu);
+    displayTraffic(canvaDaily, canvaWeekly, canvaHourly, canvaMonthly);
+});
+
+weeklyMenu.addEventListener("click", function(){
+    active(weeklyMenu, hourlyMenu, dailyMenu, monthlyMenu);
+    displayTraffic(canvaWeekly, canvaHourly, canvaDaily, canvaMonthly);
+});
+
+monthlyMenu.addEventListener("click", function(){
+    active(monthlyMenu, weeklyMenu, dailyMenu, hourlyMenu);
+    displayTraffic(canvaMonthly, canvaWeekly, canvaDaily, canvaHourly);
+});
+
+
+
+
